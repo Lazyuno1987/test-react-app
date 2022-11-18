@@ -53,4 +53,14 @@
 
 .search-field label {
     margin-right: 4px;
+       
+}
+
+.info-area{
+    margin-top: 80px;
+ 
+}
+
+form{
+    width: 350px;
 }

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
-// import ReactDOM from 'https://esm.sh/react-dom@18.2.0'
+
 import './App.css';
+
+import {Button, Input, Li, LiCountry} from './App.styled'
 import axios from 'axios'
 import {v4} from 'uuid'
 function App() {
@@ -8,11 +10,15 @@ function App() {
   const [selectedCountryHolidays, setselectedCountryHolidays] = useState([]);
   const [country, setCountry] = useState()
   let count;
+ 
+  
+
+
   const ListItems = (items) => {
-   // console.log(items.items)
+  
     return (
       <ul>
-        {items?.items.map(el => (<li key={el.countryCode}>{el.name}</li>))}
+        {items?.items.map(el => (<LiCountry    key={el.countryCode}>  {el.name}</LiCountry>))}
       </ul>
     )
   }
@@ -23,7 +29,7 @@ function App() {
     axios
       .get('https://date.nager.at/api/v3/AvailableCountries')
       .then((response) => {
-        //console.log("Data Items: ", response.data)
+        // console.log("Data Items: ", response.data)
         setData(response.data)
       })
       .catch(error => console.log("Axios error: ", error));
@@ -67,8 +73,8 @@ e.preventDefault()
             <form onSubmit={onCountyClick}>
 <label htmlFor="search">Search text</label>
             {/* #2 On the input, filter the countries listed below */}
-            <input id="search" type="text" onChange={handleChange} />
-            <button type='submit'>Choose</button>
+            <Input id="search" type="text" onChange={handleChange} />
+            <Button type='submit'>Choose</Button>
             </form>
             
           </section>
@@ -76,12 +82,12 @@ e.preventDefault()
         </div>
         <div className="info-area">
           {selectedCountryHolidays?.map(item => (
-            <div key={v4()}>
+            <Li key={v4()}>
               <h3>{item.localName}</h3>
-              <p>LaunchYear: {item.launchYear}</p>
+              {item.launchYear && <p>LaunchYear: {item.launchYear}</p>}
               <p>Date: {item.date}</p>
-              <p>Countries: {item && item?.counties?.map(county => <span>{county}</span>)}</p>
-            </div>
+              {item.counties && <p>Countries: {item && item?.counties?.map(county => <span>{county}</span>)}</p>}
+            </Li>
           ))}
         </div>
       </div>
