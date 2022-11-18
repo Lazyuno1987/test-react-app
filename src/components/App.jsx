@@ -77,7 +77,7 @@ e.preventDefault()
         <div className="info-area">
           {selectedCountryHolidays?.map(item => (
             <div key={v4()}>
-              <h3>{item.name}</h3>
+              <h3>{item.localName}</h3>
               <p>launchYear: {item.launchYear}</p>
               <p>date: {item.date}</p>
               {/* <p>countries: {item && item?.counties.map(country => <span>{country}</span>)}</p> */}
