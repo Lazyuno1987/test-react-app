@@ -33,11 +33,11 @@ function App() {
  
   const handleChange = (e) => {
    
-    data?.map(el => {
+    data?.map((el)=>{
       if (e.target.value === el.name) {
-      
-        count = el.countryCode
+    count = el.countryCode
       }
+      return count
     })
     return setCountry(count)
    
