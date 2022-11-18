@@ -64,3 +64,10 @@
 form{
     width: 350px;
 }
+
+.link-item{
+    list-style: none;
+    display: block;
+        width: 200px;
+        cursor: pointer;
+}
