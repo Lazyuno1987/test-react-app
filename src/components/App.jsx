@@ -73,7 +73,7 @@ e.preventDefault()
             <form onSubmit={onCountyClick}>
 <label htmlFor="search">Search text</label>
             {/* #2 On the input, filter the countries listed below */}
-            <Input id="search" type="text" onChange={handleChange} />
+            <Input placeholder='Write a country' id="search" type="text" onChange={handleChange} />
             <Button type='submit'>Choose</Button>
             </form>
             
