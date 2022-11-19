@@ -23,9 +23,7 @@ function Home() {
             onClick={onCountyClick}
             className="link-item"
             key={el.countryCode}
-          >
-            {' '}
-            {el.name}
+          >{el.name}
           </li>
         ))}
       </ul>
@@ -36,11 +34,27 @@ function Home() {
     axios
       .get('https://date.nager.at/api/v3/AvailableCountries')
       .then(response => {
-        // console.log("Data Items: ", response.data)
         setData(response.data);
       })
       .catch(error => console.log('Axios error: ', error));
   }, []);
+
+  const handleChange = (e) => {
+    
+    if (e.target.value) {
+      const newData = data?.filter(el => el.name.includes( e.target.value))
+      setData(newData)
+    } else if (e.target.value === '') {
+      axios
+      .get('https://date.nager.at/api/v3/AvailableCountries')
+      .then(response => {
+        setData(response.data);
+      })
+      .catch(error => console.log('Axios error: ', error));
+    }
+  
+     
+}
 
   const onCountyClick = e => {
     countFull = e?.target?.textContent?.trim();
@@ -69,6 +83,7 @@ function Home() {
               <label htmlFor="search">Search text</label>
               {/* #2 On the input, filter the countries listed below */}
               <Input
+                onChange={handleChange}
                 placeholder={countryFull ? countryFull : 'Write a country'}
                 id="search"
                 type="text"
