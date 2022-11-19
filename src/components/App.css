@@ -19,7 +19,8 @@
 }
 
 .info-area{
-    margin-top: 80px;
+    margin-top: 48px;
+
  
 }
 
@@ -30,7 +31,10 @@ form{
 .link-item{
     list-style: none;
     display: block;
+    margin-bottom: 5px;
+    padding: 10px;
     text-decoration: underline;
         width: 200px;
         cursor: pointer;
+            box-shadow: rgb(54 2 46 / 66%) 0px 3px 18px 2px;
 }

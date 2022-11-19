@@ -80,7 +80,7 @@ function Home() {
         <div className="search-area">
           <section className="search-field">
             <form>
-              <label htmlFor="search">Search text</label>
+              <label htmlFor="search">Search country</label>
               {/* #2 On the input, filter the countries listed below */}
               <Input
                 onChange={handleChange}
@@ -94,8 +94,8 @@ function Home() {
         </div>
         <div className="info-area">
           {selectedCountryHolidays?.map(item => (
-            <Li key={v4()}>
-              <h3>Hollyday Name: {item.localName}</h3>
+            <Li  key={v4()}>
+              <h3>Holiday Name: {item.localName}</h3>
               {item.launchYear && <p>LaunchYear: {item.launchYear}</p>}
               <p>Date: {item.date}</p>
               {item.counties && (
